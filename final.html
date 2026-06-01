@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Level</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+height:100vh;
+background:#0a0a0a;
+overflow:hidden;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+#counter{
+font-size:80px;
+font-weight:700;
+position:absolute;
+top:40px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.spruch{
+position:absolute;
+font-size:14px;
+color:rgba(255,255,255,0.7);
+animation:float 6s infinite linear;
+pointer-events:none;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0);}
+}
+
+#final{
+display:none;
+text-align:center;
+font-size:28px;
+padding:40px;
+}
+
+button{
+position:absolute;
+bottom:40px;
+padding:15px 40px;
+border:none;
+border-radius:999px;
+cursor:pointer;
+font-weight:600;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="counter">0 / 1500</div>
+
+<div id="final">
+lol genug zeit um 1500 mal einen knopf zu drücken aber nd um zu mir zu kommen :3
+</div>
+
+<button id="btn">Drück Leertaste</button>
+
+<script>
+
+let count = 0;
+
+const texts = [
+"du bist mein Lieblingsmensch",
+"ich würd dich immer wählen",
+"du fehlst mir",
+"du bist mein Zuhause",
+"ich mag dein Lächeln",
+"du bist einzigartig",
+"mit dir ist alles besser",
+"ich denk an dich",
+"du bist wichtig",
+"bitte bleib immer du"
+];
+
+function spawnText(){
+const el = document.createElement("div");
+el.classList.add("spruch");
+el.innerText = texts[Math.floor(Math.random()*texts.length)];
+
+el.style.left = Math.random()*window.innerWidth + "px";
+el.style.top = Math.random()*window.innerHeight + "px";
+
+document.body.appendChild(el);
+
+setTimeout(()=>el.remove(),6000);
+}
+
+function update(){
+document.getElementById("counter").innerText =
+count + " / 1500";
+
+if(count % 5 === 0){
+spawnText();
+}
+
+if(count >= 1500){
+document.getElementById("counter").style.display="none";
+document.getElementById("btn").style.display="none";
+document.getElementById("final").style.display="block";
+}
+}
+
+document.addEventListener("keydown",(e)=>{
+if(e.code === "Space"){
+count++;
+update();
+}
+});
+
+document.getElementById("btn").onclick=()=>{
+count++;
+update();
+};
+
+</script>
+
+</body>
+</html>
