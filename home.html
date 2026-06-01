@@ -3,163 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unsere Zeit ❤️</title>
+<title>Since</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
 }
 
 body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#0f172a,#1e293b,#7c3aed);
-    overflow:hidden;
+background:#090909;
+color:white;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
 .card{
-    width:90%;
-    max-width:700px;
-    padding:50px;
-    text-align:center;
-    border-radius:30px;
-    backdrop-filter:blur(25px);
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.15);
-    color:white;
-    box-shadow:0 25px 50px rgba(0,0,0,.3);
+width:900px;
+max-width:90%;
+background:#111;
+border:1px solid #222;
+padding:50px;
+border-radius:30px;
 }
 
-h1{
-    margin-bottom:15px;
-    font-size:2.5rem;
+.top{
+color:#666;
+margin-bottom:15px;
 }
 
-.subtitle{
-    color:rgba(255,255,255,.75);
-    margin-bottom:35px;
+.days{
+font-size:120px;
+font-weight:700;
+line-height:1;
 }
 
-.timer{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-    margin-bottom:40px;
+.time{
+display:flex;
+gap:40px;
+margin-top:25px;
 }
 
-.box{
-    background:rgba(255,255,255,.08);
-    padding:20px;
-    border-radius:18px;
-}
-
-.number{
-    font-size:2rem;
-    font-weight:700;
+.unit{
+font-size:40px;
+font-weight:600;
 }
 
 .label{
-    opacity:.7;
-    font-size:.9rem;
+color:#666;
+font-size:14px;
 }
 
-.next-btn{
-    padding:15px 40px;
-    border:none;
-    border-radius:15px;
-    font-size:16px;
-    font-weight:600;
-    cursor:pointer;
-    color:white;
-    background:linear-gradient(135deg,#8b5cf6,#ec4899);
-    transition:.3s;
+button{
+margin-top:40px;
+padding:15px 35px;
+border:none;
+background:white;
+color:black;
+border-radius:999px;
+cursor:pointer;
+font-weight:600;
 }
 
-.next-btn:hover{
-    transform:translateY(-3px);
-}
 </style>
 </head>
-
 <body>
 
 <div class="card">
 
-    <h1>❤️ Unsere gemeinsame Zeit ❤️</h1>
+<div class="top">
+Together since 22.02.2026
+</div>
 
-    <p class="subtitle">
-        Seit dem 22.02.2026 zusammen
-    </p>
+<div class="days" id="days">
+0
+</div>
 
-    <div class="timer">
-        <div class="box">
-            <div class="number" id="days">0</div>
-            <div class="label">Tage</div>
-        </div>
+<div>Tage</div>
 
-        <div class="box">
-            <div class="number" id="hours">0</div>
-            <div class="label">Stunden</div>
-        </div>
+<div class="time">
 
-        <div class="box">
-            <div class="number" id="minutes">0</div>
-            <div class="label">Minuten</div>
-        </div>
+<div>
+<div class="unit" id="hours">0</div>
+<div class="label">STUNDEN</div>
+</div>
 
-        <div class="box">
-            <div class="number" id="seconds">0</div>
-            <div class="label">Sekunden</div>
-        </div>
-    </div>
+<div>
+<div class="unit" id="minutes">0</div>
+<div class="label">MINUTEN</div>
+</div>
 
-    <button class="next-btn" onclick="window.location.href='seite2.html'">
-        Weiter →
-    </button>
+<div>
+<div class="unit" id="seconds">0</div>
+<div class="label">SEKUNDEN</div>
+</div>
+
+</div>
+
+<button onclick="location.href='game.html'">
+Weiter
+</button>
 
 </div>
 
 <script>
 
-const startDate = new Date("2026-02-22T00:00:00");
+const startDate =
+new Date("2026-02-22T00:00:00");
 
-function updateTimer(){
+function update(){
 
-    const now = new Date();
-    const diff = now - startDate;
+const now = new Date();
 
-    const days = Math.floor(diff / (1000*60*60*24));
+const diff = now - startDate;
 
-    const hours = Math.floor(
-        (diff % (1000*60*60*24))
-        / (1000*60*60)
-    );
+const days =
+Math.floor(diff/(1000*60*60*24));
 
-    const minutes = Math.floor(
-        (diff % (1000*60*60))
-        / (1000*60)
-    );
+const hours =
+Math.floor((diff%(1000*60*60*24))/(1000*60*60));
 
-    const seconds = Math.floor(
-        (diff % (1000*60))
-        / 1000
-    );
+const minutes =
+Math.floor((diff%(1000*60*60))/(1000*60));
 
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
+const seconds =
+Math.floor((diff%(1000*60))/1000);
+
+document.getElementById("days").innerText=days;
+document.getElementById("hours").innerText=hours;
+document.getElementById("minutes").innerText=minutes;
+document.getElementById("seconds").innerText=seconds;
+
 }
 
-updateTimer();
-setInterval(updateTimer,1000);
+update();
+setInterval(update,1000);
 
 </script>
 
