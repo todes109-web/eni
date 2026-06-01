@@ -6,6 +6,7 @@
 <title>Gallery</title>
 
 <style>
+
 body{
 margin:0;
 background:#0a0a0a;
@@ -35,6 +36,21 @@ font-size:18px;
 color:#ccc;
 line-height:1.5;
 }
+
+.next{
+position:fixed;
+bottom:40px;
+left:50%;
+transform:translateX(-50%);
+padding:15px 40px;
+border:none;
+border-radius:999px;
+cursor:pointer;
+font-weight:600;
+background:white;
+color:black;
+}
+
 </style>
 </head>
 
@@ -45,7 +61,7 @@ line-height:1.5;
 <div class="card">
 <img src="bilder/bild1.png">
 <div class="text">
-Eines meiner Lieblingsbilder. Weil du einfach so bist wie du bist :3.
+Eines meiner Lieblingsbilder. Einfach weil du du bist :3.
 </div>
 </div>
 
@@ -57,6 +73,10 @@ Manchmal schaue ich dich an und denke: wie kann jemand so besonders sein.
 </div>
 
 </div>
+
+<button class="next" onclick="location.href='final.html'">
+Weiter →
+</button>
 
 </body>
 </html>
