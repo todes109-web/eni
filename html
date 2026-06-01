@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login ❤️</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    font-family:Arial,sans-serif;
+}
+
+.login-box{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    width:320px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+h1{
+    color:#ff4f81;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#ff4f81;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.error{
+    color:red;
+    margin-top:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="login-box">
+    <h1>❤️ Login ❤️</h1>
+
+    <input type="text" id="username" placeholder="Benutzername">
+    <input type="password" id="password" placeholder="Passwort">
+
+    <button onclick="login()">Anmelden</button>
+
+    <p id="error" class="error"></p>
+</div>
+
+<script>
+function login() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    if(username === "meinefreundin" && password === "ichliebedich") {
+        window.location.href = "home.html";
+    } else {
+        document.getElementById("error").textContent =
+            "Falscher Benutzername oder Passwort";
+    }
+}
+</script>
+
+</body>
+</html>
